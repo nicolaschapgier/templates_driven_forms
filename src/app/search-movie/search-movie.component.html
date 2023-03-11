@@ -1,0 +1,48 @@
+<form
+  (ngSubmit)="orderForm.valid && onSubmit()"
+  [formGroup]="orderForm"
+  #myForm="ngForm"
+>
+  <!-- champ identifiant -->
+  <label for="identifiant">Identifiant</label>
+  <input type="text" name="identifiant" formControlName="identifiant" />
+  <span *ngIf="orderForm.controls.identifiant.errors?.['required']">
+    Le champ identifiant est requis
+  </span>
+
+  <!-- champ titre -->
+  <label for="titre">Titre</label>
+  <input type="text" name="titre" formControlName="titre" />
+
+  <!-- <span *ngIf="orderForm.controls.identifiant.errors?.['required'] || orderForm.controls.titre.errors?.['required']">
+    L'un des deux champs "Identifiant" ou "Titre" doit être renseigné
+  </span> -->
+
+  <span *ngIf="orderForm.controls.titre.errors?.['required']">
+    Le champ titre est requis
+  </span>
+
+  <!-- champ type -->
+  <label for="type">Type</label>
+  <select formControlName="type">
+    <option *ngFor="let type of types" [ngValue]="type.name">
+      {{ type.name }}
+    </option>
+  </select>
+
+  <!-- champ année de sortie -->
+  <label for="date">Année de sortie</label>
+  <input type="number" name="date" formControlName="anneeDeSortie" />
+  <span *ngIf="orderForm.controls.anneeDeSortie.errors?.['required']">
+    Le champ année est requis
+  </span>
+  <span *ngIf="orderForm.get('anneDeSortie')?.errors?.['min']">Requis</span>
+  <!-- POURQUOIIIIIIIIIIIIIIIIIIII -->
+
+  <!-- champs fiches -->
+  <label for="fiches">Fiche</label>
+  <select formControlName="fiche">
+    <option *ngFor="let fiche of fiches">{{ fiche.name }}</option>
+  </select>
+  <button type="submit">Soumettre le formulaire</button>
+</form>

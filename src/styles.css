@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+form {
+  width: 550px;
+}
+
+label {
+  min-width: 250px;
+  display: inline-block
+}
+
+label:after {
+  content: ' : ';
+}
+
+input {
+  min-width: 250px;
+  height: 24px;
+  margin-top: 15px;
+}
+
+span {
+  padding-left: 250px;
+  font-size: 14px;
+  color: tomato;
+}
+
+button {
+  margin-top: 15px;
+}
+
+button[type="submit"] {
+  float: right;
+}
+
+button[type="button"] {
+  margin-left: 275px;
+}
+
+div[formarrayname]>div {
+  padding: 10px 0 10px 0;
+}
